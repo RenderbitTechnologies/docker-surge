@@ -1,5 +1,5 @@
-# use latest Node LTS (Carbon)
-FROM node:carbon-alpine
+# use latest Node LTS (alpine)
+FROM node:lts-alpine
 
 # set user to avoid permission issues
 # (see https://github.com/nodejs/node-gyp/issues/1236)
@@ -8,7 +8,7 @@ RUN mkdir /home/node/.npm-global
 ENV PATH=/home/node/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
-# install Firebase CLI
+# install surge CLI
 RUN npm install -g surge && \
     npm cache clean --force
 
